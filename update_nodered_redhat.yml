@@ -1,0 +1,25 @@
+
+- name: Playbook for updating Node-RED on RedHat
+
+  hosts: all
+
+  tasks:
+    - name: Download update-nodejs-and-nodered
+      get_url:
+        url: https://raw.githubusercontent.com/node-red/linux-installers/master/rpm/update-nodejs-and-nodered
+        dest: /usr/bin/update-nodejs-and-nodered
+        mode: 0777
+      become: true
+
+    - name: Upgrade node.js and Node-RED
+      shell: "yes|/usr/bin/update-nodejs-and-nodered"
+      register: out
+
+    - name: Start and enable Node-RED service
+      systemd:
+        name: nodered
+        enabled: yes
+        state: started
+      become: true
+
+    - debug: var=out.stdout_lines
