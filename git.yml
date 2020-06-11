@@ -3,6 +3,6 @@
   tasks:
     - name: Get latest release of a public repository
       github_release:
-        user: ansible
-        repo: ansible
+        user: node-red
+        repo: node-red
         action: latest_release
