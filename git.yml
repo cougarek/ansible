@@ -1,7 +1,7 @@
 - name: Hello World Sample
   hosts: all
   tasks:
-    - name: Get latest release of a public repository
+    - name: Get latest release of a public repository Node-Red
       github_release:
         user: node-red
         repo: node-red
