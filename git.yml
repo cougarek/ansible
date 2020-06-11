@@ -1,5 +1,8 @@
-- name: Get latest release of a public repository
-  github_release:
-    user: ansible
-    repo: ansible
-    action: latest_release
+- name: Hello World Sample
+  hosts: all
+  tasks:
+    - name: Get latest release of a public repository
+      github_release:
+        user: ansible
+        repo: ansible
+        action: latest_release
