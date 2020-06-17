@@ -1,12 +1,20 @@
 - name: Test playbook
+
   hosts: all
+
   vars:
-          latest_release: empty
+
   tasks:
+
     - debug: var=ansible_facts
+
     - name: Get latest release of a public repository Node-Red
       github_release:
         user: node-red
         repo: node-red
         action: latest_release
-    - debug: var=latest_release
+        register: latest_release
+        
+    - name: Display result
+      debug:
+        var: latest_release
