@@ -1,0 +1,20 @@
+
+- name: Playbook for updating and upgrading Raspberrys
+
+  hosts: all
+
+  tasks:
+
+    - name: Install aptitude if not present
+      apt:
+        name: aptitude
+      become: yes
+
+    - name: Run aptitude full-upgrade
+      apt:
+        update_cache: yes
+        upgrade: full
+      register: out
+      become: yes
+
+    - debug: var=out.stdout_lines
