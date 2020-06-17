@@ -1,6 +1,7 @@
 - name: Hello World Sample
   hosts: all
   tasks:
+    - debug: var=ansible_facts
     - name: Get latest release of a public repository Node-Red
       github_release:
         user: node-red
