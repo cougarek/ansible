@@ -10,8 +10,8 @@
 
     - name: Get latest release of a public repository Node-Red
       github_release:
-        user: node-red
-        repo: node-red
+        user: cougarek
+        repo: ansible
         action: latest_release
       register: latest_release
         
