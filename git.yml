@@ -13,7 +13,7 @@
         user: node-red
         repo: node-red
         action: latest_release
-        register: latest_release
+      register: latest_release
         
     - name: Display result
       debug:
