@@ -6,4 +6,4 @@
         user: node-red
         repo: node-red
         action: latest_release
-    - debug: var=out.stdout_lines
+    - debug: var=latest_release
