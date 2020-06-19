@@ -1,9 +1,5 @@
 - name: Test playbook
-
   hosts: all
-
-  vars:
-
   tasks:
 
     - debug: var=ansible_facts
@@ -14,7 +10,24 @@
         repo: ansible
         action: latest_release
       register: latest_release
+
+    - name: Set latest release as previous release for next run
+      set_fact:
+        previous_release: "{{latest_release}}"
+        cacheable: yes
+
+    - name: Decide whever to run update playbook
+      include_tasks: git2.yml
+      when:
+        latest_release.tag != previous_release.tag
+        #tags:
+      #- never
         
     - name: Display result
       debug:
-        var: latest_release
+        var: latest_release.tag
+
+        #when:
+        #previous_release == latest_release
+        #var: previous_release
+        #var: latest_release
