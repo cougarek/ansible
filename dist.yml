@@ -1,0 +1,8 @@
+- name: Test playbook
+  hosts: all
+  tasks:
+
+    - name: Display result
+      debug:
+        msg: "{{ ansible_facts['distribution'] }}"
+
