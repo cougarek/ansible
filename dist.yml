@@ -3,6 +3,5 @@
   tasks:
 
     - name: Display result
-      debug:
-        msg: "{{ ansible_facts['distribution'] }}"
+      msg: "{{ ansible_facts['distribution'] }}"
 
