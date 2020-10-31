@@ -1,6 +1,6 @@
 
 
-    - name: Download update-nodejs-and-nodered
+    - name: Download update-nodejs-and-nodered for RedHat
       get_url:
         url: https://raw.githubusercontent.com/node-red/linux-installers/master/rpm/update-nodejs-and-nodered
         dest: /usr/bin/update-nodejs-and-nodered
@@ -8,7 +8,7 @@
       become: true
       when: ansible_facts['os_family'] == "RedHat"
 
-    - name: Download update-nodejs-and-nodered
+    - name: Download update-nodejs-and-nodered for Debian
       get_url:
         url: https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered
         dest: /usr/bin/update-nodejs-and-nodered
