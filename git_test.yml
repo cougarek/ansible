@@ -6,9 +6,9 @@
     installed_release: 1.0.0
   tasks:
 
-    - name: Set fact installed version ad hoc to 1.2.0
+    - name: Set fact installed version ad hoc to 1.0.0
       set_fact:
-        installed_release: "1.2.2"
+        installed_release: "1.0.0"
         cacheable: yes
 
     - name: Display result
