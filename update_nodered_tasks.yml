@@ -1,0 +1,31 @@
+
+
+    - name: Download update-nodejs-and-nodered
+      get_url:
+        url: https://raw.githubusercontent.com/node-red/linux-installers/master/rpm/update-nodejs-and-nodered
+        dest: /usr/bin/update-nodejs-and-nodered
+        mode: 0777
+      become: true
+      when: ansible_facts['os_family'] == "RedHat"
+
+    - name: Download update-nodejs-and-nodered
+      get_url:
+        url: https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered
+        dest: /usr/bin/update-nodejs-and-nodered
+        mode: 0777
+      become: true
+      when: ansible_facts['os_family'] == "Debian"
+
+
+    - name: Upgrade node.js and Node-RED
+      shell: "yes|/usr/bin/update-nodejs-and-nodered"
+      register: out
+
+    - name: Start and enable Node-RED service
+      systemd:
+        name: nodered
+        enabled: yes
+        state: started
+      become: true
+
+    - debug: var=out.stdout_lines

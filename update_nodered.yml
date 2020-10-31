@@ -1,0 +1,21 @@
+- name: Test playbook
+  hosts: all
+  vars:
+  tasks:
+
+    - name: Get latest release of a public repository Node-Red
+      github_release:
+        user: node-red
+        repo: node-red
+        action: latest_release
+      register: latest_release
+
+    - name: Decide if upgrade is needed
+      include_tasks: update_nodered_tasks.yml
+      when: ansible_facts['installed_release'] != latest_release.tag
+
+    - name: Set fact installed version after install
+      set_fact:
+        installed_release: "{{ latest_release.tag }}"
+        cacheable: yes
+
