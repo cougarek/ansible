@@ -1,0 +1,23 @@
+- name: Test playbook
+  hosts: all
+  gather_facts: yes
+
+  vars:
+    installed_release: 1.0.0
+  tasks:
+
+    - name: Set fact installed version ad hoc to 1.0.0
+      set_fact:
+        installed_release: "1.0.0"
+        cacheable: yes
+
+    - name: Display result
+      debug:
+        msg: "{{ ansible_facts['installed_release'] }}"
+        #var: hostvars['localhost']['hostmap']
+        #var: installed_release
+
+        #when:
+        #previous_release == latest_release
+        #var: previous_release
+        #var: latest_release
