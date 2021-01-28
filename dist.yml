@@ -1,5 +1,8 @@
-- name: Test playbook
+
+- name: Get linux distribution
+
   hosts: all
+
   tasks:
 
     - name: Display result
