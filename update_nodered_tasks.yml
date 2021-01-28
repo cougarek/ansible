@@ -20,7 +20,7 @@
     - name: Upgrade node.js and Node-RED
       shell: "yes|/usr/bin/update-nodejs-and-nodered"
       register: out
-      tags: never
+#      tags: never
 
     - name: Start and enable Node-RED service
       systemd:
@@ -28,7 +28,7 @@
         enabled: yes
         state: started
       become: true
-      tags: never
+#      tags: never
 
     - name: Set fact installed version after install
       set_fact:
