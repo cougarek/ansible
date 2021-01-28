@@ -35,4 +35,3 @@
         installed_release: "{{ latest_release.tag }}"
         cacheable: yes
 
-    - debug: var=out.stdout_lines
