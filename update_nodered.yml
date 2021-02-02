@@ -1,12 +1,12 @@
 - name: Update Node-Red
   hosts: all
-  gather_facts: no
+  #gather_facts: no
   vars:
   tasks:
 
-    - name: Print all available facts
-      ansible.builtin.debug:
-        var: ansible_facts
+#    - name: Print all available facts
+#      ansible.builtin.debug:
+#        var: ansible_facts
 
     - name: Get latest release of a public repository Node-Red
       github_release:
