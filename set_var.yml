@@ -1,13 +1,13 @@
 - name: Set version var manually
   hosts: all
-  gather_facts: yes
+  gather_facts: no
   vars:
 
   tasks:
 
-    - name: Display result preset
-      debug:
-        msg: "{{ ansible_facts['installed_release'] }}"
+#    - name: Display result preset
+#      debug:
+#        msg: "{{ ansible_facts['installed_release'] }}"
 
     - name: Set fact installed version ad hoc to 1.X.X
       set_fact:
