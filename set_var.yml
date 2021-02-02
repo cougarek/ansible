@@ -5,6 +5,10 @@
 
   tasks:
 
+    - name: Display result preset
+      debug:
+        msg: "{{ ansible_facts['installed_release'] }}"
+
     - name: Set fact installed version ad hoc to 1.X.X
       set_fact:
         installed_release: "1.2.7"
