@@ -1,7 +1,11 @@
-- name: Test playbook
+- name: Update Node-Red
   hosts: all
   vars:
   tasks:
+
+    - name: Print all available facts
+      ansible.builtin.debug:
+        var: ansible_facts
 
     - name: Get latest release of a public repository Node-Red
       github_release:
