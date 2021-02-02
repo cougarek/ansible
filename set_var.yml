@@ -8,7 +8,7 @@
 
     - name: Set fact installed version ad hoc to 1.0.0
       set_fact:
-        installed_release: "1.0.0"
+        installed_release: "1.2.7"
         cacheable: yes
 
     - name: Display result
